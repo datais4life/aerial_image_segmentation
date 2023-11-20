@@ -1,7 +1,6 @@
 # Imports
 import segmentation_models_pytorch as smp
 from segmentation_models_pytorch.losses import DiceLoss
-
 from torch import nn
 
 # Variables
@@ -23,8 +22,6 @@ class SegmentationModel(nn.Module):
     )
 
   def forward(self, images, masks = None):
-
     logits = self.backbone(images)
-
     if masks != None:
       return logits, DiceLoss(mode = 'binary')(logits, masks) + nn.BCEWithLogitsLoss()(logits, masks)
