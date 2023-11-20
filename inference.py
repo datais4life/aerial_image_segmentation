@@ -18,13 +18,8 @@ parser.add_argument("--output_dir", help="directory storing the output predictio
 #parse arguments
 args = parser.parse_args()
 
-
 input_dir = args.input_dir
 output_dir = args.output_dir
-
-
-
-
 
 # Running model inference on an image. Change the index number to run the model on another image. 
 idx = 22
@@ -63,7 +58,7 @@ def predict_on_folder_of_images(input_dir, output_dir):
         #image = Image.open(f"{input_dir}/{file}")
         
         image = cv2.imread(/data/Aerial_Image_Segmentation/Road_seg_dataset/images)
-        image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB) #(h, w, c)
+        image = cv2.cvtColor(input_dir, cv2.COLOR_BGR2RGB) #(h, w, c)
         print(f"reading image with cv2 : {file}")
 
         logits_mask = model(image.to(DEVICE).unsqueeze(0)) #(c, h, w) -> (b, c, h, w)
@@ -76,14 +71,11 @@ def predict_on_folder_of_images(input_dir, output_dir):
         cv2.imwrite(f'{output_dir}/{file}_mask.png', pred_mask)
         image_count += 1 
 
-
-
 # logits_mask = model(image.to(DEVICE).unsqueeze(0)) #(c, h, w) -> (b, c, h, w)
 # pred_mask = torch.sigmoid(logits_mask)
 # pred_mask = (pred_mask > 0.5)*1.0
 
 #helper.show_image(image, mask, pred_mask.detach().cpu().squeeze(0))
-
 
 if __name__ == '__main__':
     try:
