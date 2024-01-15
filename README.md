@@ -28,4 +28,4 @@ Aerial image segmentation is the process of dividing a high-altitude image of th
 This project uses aerial imagery from 2.25 square kilometers of aerial imagery from the Massachusetts Road Dataset containing 200 images and their corresponding masks. Using PyTorch and Python, a model is created to identify the roadways in the aerial images. A U-Net architecture is used to downsample the image to reduce its size while extracting important features, condensing the most important features, then upsampling the image to restore its size with an understanding of where the most important features are located and concating them by size along the way. With this encoding and decoding process, the image is processed and the final display shows the original aerial image along side the segmented mask that the machine learning algorithm produced. 
 
 ### Final Output Example
-<img width="863" alt="output" src="https://github.com/datais4life/Aerial-Image-Segmentation/assets/104536626/8904efea-ff70-4f9a-b8ff-38c89004991e">
+![Output Image](output.png)
